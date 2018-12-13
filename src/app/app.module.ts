@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
+import {  enthusiastsListReducer } from './Store/enthusiastsList.reducer';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot( { enthusiasts: enthusiastsListReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
