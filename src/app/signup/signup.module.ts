@@ -3,17 +3,24 @@ import { CommonModule } from '@angular/common';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { Store,  StoreModule } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import {MatFormFieldModule, MatIconModule, MatInputModule,MatButtonModule} from '@angular/material';
 
 export const SIGNUP_ROUTES = [
   { path: '' , component: SignupFormComponent}
 ]
 @NgModule({
-  declarations: [SignupFormComponent],
+  declarations: [SignupFormComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild(SIGNUP_ROUTES)
+    RouterModule.forChild(SIGNUP_ROUTES),
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule
+    
   ],
   providers: [ Store]
 })

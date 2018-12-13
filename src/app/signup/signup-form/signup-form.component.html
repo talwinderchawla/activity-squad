@@ -1,26 +1,49 @@
-<form [formGroup]="signUpForm" (ngSubmit)="onSignUpSubmit()">
-  <div>
-    <label>
-      First Name: <input type="text" formControlName="firstName" />
-    </label>
-  </div>
-  <div>
-    <label> Last Name: <input type="text" formControlName="lastName" /> </label>
-  </div>
-  <div>
-    <label>
-      Email Address: <input type="text" formControlName="emailAddress" />
-    </label>
-  </div>
-  <div>
-    <label> Activity: <input type="text" formControlName="activity" /> </label>
-  </div>
-  <div>
-    <label>
-      Comments: <textarea formControlName="comments"></textarea>
-    </label>
-  </div>
-  <div>
-    <button type="submit" [disabled]="!signUpForm.valid">Submit</button>
-  </div>
-</form>
+<div class="app-background">
+<div class="signup-form-div">
+  <form [formGroup]="signUpForm" (ngSubmit)="onSignUpSubmit()">
+    <p>
+      <mat-form-field appearance="standard" class="app-form-field">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="firstName" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="lastName" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>Email Address</mat-label>
+        <input
+          matInput
+          placeholder="Placeholder"
+          formControlName="emailAddress"
+        />
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>Activity</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="activity" />
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>Comments</mat-label>
+        <textarea
+          matInput
+          placeholder="Placeholder"
+          formControlName="comments"
+        ></textarea>
+      </mat-form-field>
+    </p>
+    <button mat-button type="submit" [disabled]="!signUpForm.valid" class="submit-button">
+      Submit
+    </button>
+  </form>
+</div>
+</div>
