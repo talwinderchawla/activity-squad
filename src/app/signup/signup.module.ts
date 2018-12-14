@@ -1,17 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SignupFormComponent } from './signup-form/signup-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { Store } from '@ngrx/store';
-import {MatFormFieldModule, MatIconModule, MatInputModule,MatButtonModule} from '@angular/material';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { SignupFormComponent } from "./signup-form/signup-form.component";
+import { ReactiveFormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
+import { Store } from "@ngrx/store";
+import {
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatButtonModule
+} from "@angular/material";
 
-export const SIGNUP_ROUTES = [
-  { path: '' , component: SignupFormComponent}
-]
+
+export const SIGNUP_ROUTES = [{ path: "", component: SignupFormComponent }];
 @NgModule({
-  declarations: [SignupFormComponent,
-  ],
+  declarations: [SignupFormComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -20,8 +23,7 @@ export const SIGNUP_ROUTES = [
     MatIconModule,
     MatInputModule,
     MatButtonModule
-    
-  ],
-  providers: [ Store]
+    ],
+  providers: [Store]
 })
-export class SignupModule { }
+export class SignupModule {}

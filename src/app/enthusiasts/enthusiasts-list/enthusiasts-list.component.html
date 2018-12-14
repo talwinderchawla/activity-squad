@@ -1,4 +1,35 @@
-<ul class="list-group-item">
-  <li *ngFor="let enthusiast of enthusiasts_list" class="list-group-item">{{enthusiast.firstName}}</li>
-  
-</ul>
+<div>
+    <table matSort (matSortChange)="sortData($event)" class="table table-striped">
+        <tr>
+          <th mat-sort-header="activity">Activity Names</th>
+          <th> Interest Persons info</th>
+        </tr>
+      
+        <tr *ngFor="let enthusiast of sortedData">
+          <td>{{ enthusiast.activity }}</td>
+          <td>
+            <h3 matLine> {{ enthusiast.firstName }} {{ enthusiast.lastName }} </h3>
+            <p matLine>
+              <span class="list-span"> <b>Email: </b>{{ enthusiast.emailAddress }}</span>
+              <span class="list-span"> <b>Activity: </b>{{ enthusiast.activity }}</span>
+              <span class="list-span"> <b>Activity: </b>{{ enthusiast.comments }} </span>
+            </p>
+          </td>
+          
+        </tr>
+      </table>
+  <!--<mat-list>
+  <h3>Interested Persons</h3>
+  <mat-list>
+    <mat-list-item *ngFor="let enthusiast of enthusiasts_list">
+      <h3 matLine> {{ enthusiast.firstName }} {{ enthusiast.lastName }} </h3>
+      <p matLine>
+        <span class="list-span"> <b>Email: </b>{{ enthusiast.emailAddress }}</span>
+        <span class="list-span"> <b>Activity: </b>{{ enthusiast.activity }}</span>
+        <span class="list-span"> <b>Activity: </b>{{ enthusiast.comments }} </span>
+      </p>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</mat-list>-->
+</div>
