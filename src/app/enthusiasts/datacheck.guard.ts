@@ -12,15 +12,15 @@ export class DatacheckGuard implements CanActivate {
   private dataExists: boolean = false;
 
   constructor(private store: Store<{ enthusiasts: Array<enthusiast> }>) {}
-  
+  // In canActivate Route Guard checking if the list has any data otherwise don't allow route.
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> {
-      console.log('In route guard to check for data presence');
       this.store.pipe(select("enthusiasts")).subscribe(list_data => {
         this.dataExists = (list_data.length > 0);
       });
       
+      //Returning observable of boolean type.
       return of(this.dataExists);
     }
 }

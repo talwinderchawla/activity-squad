@@ -13,6 +13,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./signup-form.component.less"]
 })
 export class SignupFormComponent implements OnInit {
+ 
+  // Reactive Form group along with formcontrols.
   signUpForm: FormGroup = new FormGroup({
     firstName: new FormControl(""),
     lastName: new FormControl(""),
@@ -21,6 +23,7 @@ export class SignupFormComponent implements OnInit {
     comments: new FormControl("")
   });
 
+  // FIxed list of activities. THis can be externalized and given a seperate for to add more activities.
   activityOptions: Array<{ name: string; value: string }> = new Array<{
     name: string;
     value: string;
@@ -39,12 +42,19 @@ export class SignupFormComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * Method called when signup form is submitted.
+   * 
+   */
   onSignUpSubmit = function() {
-    console.log("Form was submitted" + this.signUpForm.value.firstName);
     this.signup_submit(this.preparePayLoad(this.signUpForm));
     this.show_enthusiasts_list();
   };
 
+  /**
+   * Prepare json object which will be pushed into the array of enthusiasts or interested persons. 
+   * @param signUpForm
+   */
   preparePayLoad(signUpForm: FormGroup): enthusiast {
     let enthusiast_info: enthusiast;
     enthusiast_info = {
@@ -63,6 +73,10 @@ export class SignupFormComponent implements OnInit {
     return enthusiast_info;
   }
 
+  /**
+   * Dispatch SHOW_ENTHUSIAST_LIST action along with payload.
+   * @param payloadData 
+   */
   signup_submit(payloadData: enthusiast) {
     // this.store.dispatch(new signup_complete());
     this.store.dispatch({
@@ -71,6 +85,9 @@ export class SignupFormComponent implements OnInit {
     });
   }
 
+  /**
+   * Route to navigate to enthusiast list.
+   */
   show_enthusiasts_list() {
     this.router.navigate(["/enthusiasts_list"]);
   }
