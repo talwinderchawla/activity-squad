@@ -33,7 +33,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 
 ## Signup Form
-![Alt text](/SignUpScreenShot.jpg?raw=true "Optional Title")
+![Alt text](SignUpScreenShot.jpg?raw=true "Optional Title")
 
 
 ## Further help
