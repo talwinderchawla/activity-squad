@@ -2,6 +2,6 @@ export class enthusiast {
     firstName: string;
     lastName: string;
     emailAddress: string;
-    activity: string;
+    activity: {name: string, value: string};
     comments: string
 }

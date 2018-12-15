@@ -12,13 +12,13 @@ export function enthusiastsListReducer(
   switch (action.type) {
     
     case ActionTypes.SHOW_ENTHUSIAST_LIST:
-    state.push({
+    /*state.push({
       firstName: "Talwinder Singh",
       lastName: "Chawla",
       emailAddress: "talwindersingh@gmail.com",
-      activity: "Carrom",
+      activity: {name:"Carrom", value: "carrom"},
       comments: "I would like to volunteer if allowed."
-    });
+    });*/
       state.push(action.payload);
       return state;
     default:

@@ -1,49 +1,84 @@
 <div class="app-background">
-<div class="signup-form-div">
-  <form [formGroup]="signUpForm" (ngSubmit)="onSignUpSubmit()">
-    <p>
-      <mat-form-field appearance="standard" class="app-form-field">
-        <mat-label>First Name</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="firstName" />
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="standard">
-        <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="lastName" />
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="standard">
-        <mat-label>Email Address</mat-label>
-        <input
-          matInput
-          placeholder="Placeholder"
-          formControlName="emailAddress"
-        />
-      </mat-form-field>
-    </p>
+  <div class="signup-form-div">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSignUpSubmit()">
+      <h3>Activity Signup Form</h3>
+      <p>
+        <mat-form-field appearance="standard" class="app-form-field">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            placeholder="Placeholder"
+            formControlName="firstName"
+            required
+          />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            placeholder="Placeholder"
+            formControlName="lastName"
+            required
+          />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Email Address</mat-label>
+          <input
+            matInput
+            required
+            type="email"
+            placeholder="Placeholder"
+            formControlName="emailAddress"
+            email
+          />
+          <mat-hint>xyz@abc.com</mat-hint>
+        </mat-form-field>
+      </p>
 
-    <p>
-      <mat-form-field appearance="standard">
-        <mat-label>Activity</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="activity" />
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="standard">
-        <mat-label>Comments</mat-label>
-        <textarea
-          matInput
-          placeholder="Placeholder"
-          formControlName="comments"
-        ></textarea>
-      </mat-form-field>
-    </p>
-    <button mat-button type="submit" [disabled]="!signUpForm.valid" class="submit-button">
-      Submit
-    </button>
-  </form>
-</div>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Activity</mat-label>
+          <mat-select formControlName="activity" required>
+            <mat-option
+              *ngFor="let activity of activityOptions"
+              [value]="activity.value"
+              placeholder="Activity"
+            >
+              {{ activity.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Comments</mat-label>
+          <textarea
+            matInput
+            placeholder="Placeholder"
+            formControlName="comments"
+          ></textarea>
+        </mat-form-field>
+        <span style="font-size: 12px">* Indicates mandatory fields.</span>
+      </p>
+
+      <button
+        mat-button
+        type="submit"
+        [disabled]="!signUpForm.valid"
+        class="submit-button"
+      >
+        Sign Up!
+      </button>
+      <a
+        routerLink="/enthusiasts_list"
+        routerLinkActive="active"
+        class="go_to_list_link"
+        >Go To List</a
+      >
+    </form>
+  </div>
 </div>

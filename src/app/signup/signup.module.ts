@@ -8,7 +8,8 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatButtonModule
+  MatButtonModule,
+  MatSelectModule
 } from "@angular/material";
 
 
@@ -22,7 +23,8 @@ export const SIGNUP_ROUTES = [{ path: "", component: SignupFormComponent }];
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
     ],
   providers: [Store]
 })
