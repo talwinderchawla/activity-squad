@@ -6,7 +6,11 @@ import { MatListModule, MatSortModule, MatIconModule } from "@angular/material";
 import { DatacheckGuard } from "./datacheck.guard";
 
 export const ENTHUSIASTS_ROUTES = [
-  { path: "", component: EnthusiastsListComponent , canActivate: [DatacheckGuard]}
+  {
+    path: "",
+    component: EnthusiastsListComponent,
+    canActivate: [DatacheckGuard]
+  }
 ];
 
 @NgModule({

@@ -1,18 +1,18 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, async, inject } from "@angular/core/testing";
 
-import { DatacheckGuard } from './datacheck.guard';
-import { StoreModule } from '@ngrx/store';
-import { enthusiastsListReducer } from '../Store/enthusiastsList.reducer';
+import { DatacheckGuard } from "./datacheck.guard";
+import { StoreModule } from "@ngrx/store";
+import { enthusiastsListReducer } from "../Store/enthusiastsList.reducer";
 
-describe('DatacheckGuard', () => {
+describe("DatacheckGuard", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [DatacheckGuard],
-      imports: [StoreModule.forRoot( { enthusiasts: enthusiastsListReducer })]
+      imports: [StoreModule.forRoot({ enthusiasts: enthusiastsListReducer })]
     });
   });
 
-  it('should ...', inject([DatacheckGuard], (guard: DatacheckGuard) => {
+  it("should ...", inject([DatacheckGuard], (guard: DatacheckGuard) => {
     expect(guard).toBeTruthy();
   }));
 });

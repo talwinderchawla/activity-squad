@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
-import { Store } from "@ngrx/store";
-import {
-  ActionTypes
-} from "../../Store/activitySquad.actions";
+import { Store, select } from "@ngrx/store";
+import { ActionTypes } from "../../Store/activitySquad.actions";
 import { enthusiast } from "../../Store/enthusiast.model";
 import { Router } from "@angular/router";
 
@@ -13,7 +11,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./signup-form.component.less"]
 })
 export class SignupFormComponent implements OnInit {
- 
+  enthusiasts_list: Array<enthusiast>;
+  enableListURL: boolean = false;
   // Reactive Form group along with formcontrols.
   signUpForm: FormGroup = new FormGroup({
     firstName: new FormControl(""),
@@ -38,13 +37,23 @@ export class SignupFormComponent implements OnInit {
   constructor(
     private store: Store<{ enthusiasts: Array<enthusiast> }>,
     private router: Router
-  ) {}
+  ) {
+    store.pipe(select("enthusiasts")).subscribe(list_data => {
+      this.enthusiasts_list = list_data;
+      if (
+        this.enthusiasts_list !== undefined &&
+        this.enthusiasts_list.length > 0
+      ) {
+        this.enableListURL = true;
+      }
+    });
+  }
 
   ngOnInit() {}
 
   /**
    * Method called when signup form is submitted.
-   * 
+   *
    */
   onSignUpSubmit = function() {
     this.signup_submit(this.preparePayLoad(this.signUpForm));
@@ -52,7 +61,7 @@ export class SignupFormComponent implements OnInit {
   };
 
   /**
-   * Prepare json object which will be pushed into the array of enthusiasts or interested persons. 
+   * Prepare json object which will be pushed into the array of enthusiasts or interested persons.
    * @param signUpForm
    */
   preparePayLoad(signUpForm: FormGroup): enthusiast {
@@ -75,7 +84,7 @@ export class SignupFormComponent implements OnInit {
 
   /**
    * Dispatch SHOW_ENTHUSIAST_LIST action along with payload.
-   * @param payloadData 
+   * @param payloadData
    */
   signup_submit(payloadData: enthusiast) {
     // this.store.dispatch(new signup_complete());
@@ -91,6 +100,4 @@ export class SignupFormComponent implements OnInit {
   show_enthusiasts_list() {
     this.router.navigate(["/enthusiasts_list"]);
   }
-
-  
 }

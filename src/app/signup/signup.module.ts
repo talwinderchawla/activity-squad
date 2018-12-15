@@ -12,7 +12,6 @@ import {
   MatSelectModule
 } from "@angular/material";
 
-
 export const SIGNUP_ROUTES = [{ path: "", component: SignupFormComponent }];
 @NgModule({
   declarations: [SignupFormComponent],
@@ -25,7 +24,7 @@ export const SIGNUP_ROUTES = [{ path: "", component: SignupFormComponent }];
     MatInputModule,
     MatButtonModule,
     MatSelectModule
-    ],
+  ],
   providers: [Store]
 })
 export class SignupModule {}
