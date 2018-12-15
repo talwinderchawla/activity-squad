@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
 })
 export class SignupFormComponent implements OnInit {
   enthusiasts_list: Array<enthusiast>;
-  enableListURL: boolean = false;
+
   // Reactive Form group along with formcontrols.
   signUpForm: FormGroup = new FormGroup({
     firstName: new FormControl(""),
@@ -37,17 +37,7 @@ export class SignupFormComponent implements OnInit {
   constructor(
     private store: Store<{ enthusiasts: Array<enthusiast> }>,
     private router: Router
-  ) {
-    store.pipe(select("enthusiasts")).subscribe(list_data => {
-      this.enthusiasts_list = list_data;
-      if (
-        this.enthusiasts_list !== undefined &&
-        this.enthusiasts_list.length > 0
-      ) {
-        this.enableListURL = true;
-      }
-    });
-  }
+  ) {}
 
   ngOnInit() {}
 
