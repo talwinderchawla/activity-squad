@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class EnthusiastListResolverService {
 
   constructor() { }
+
+  resolve(): boolean {
+    return false;
+  }
 }
